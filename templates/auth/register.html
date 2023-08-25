@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% load static %}
-{% block title %} Вход {% endblock %}
+{% block title %} Регистрация {% endblock %}
   <body>
     {% block content %}
     <ul class="nav nav-pills sticky-top bg-white nav-fill">
@@ -20,12 +20,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'register' %}">
+        <a class="nav-link active" aria-current="page" href="{% url 'register' %}">
           <span style="font-weight: bold">Регистрация</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">
+        <a class="nav-link" href="{% url 'login' %}">
           <span style="font-weight: bold">Войти</span>
         </a>
       </li>
@@ -35,17 +35,17 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'logout' %}">
           <span style="font-weight: bold">Выйти</span>
         </a>
       </li>
     </ul>
     <div class="container">
       <div class="row">
-        <div class="col-8" style="margin: 50px">
+        <div class="col" style="margin: 50px">
           <div class="display-2">
             <span class="badge bg-primary"
-              >Страница авторизации пользователя</span
+              >Страница регистрации пользователя</span
             >
           </div>
         </div>
@@ -61,9 +61,38 @@
         </div>
         <div class="row mb-3">
           <div class="col">
+            <label class="col-sm-4 col-form-label offset-4">Name</label>
+            <div class="col-sm-4 offset-4 w-25">
+              <input type="text" class="form-control form-control-lg" />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label class="col-sm-4 col-form-label offset-4">Surname</label>
+            <div class="col-sm-4 offset-4 w-25">
+              <input type="text" class="form-control form-control-lg" />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
             <label class="col-sm-4 col-form-label offset-4">Password</label>
             <div class="col-sm-4 offset-4 w-25">
               <input type="password" class="form-control form-control-lg" />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label class="col-sm-4 col-form-label offset-4"
+              >Password confirmation</label
+            >
+            <div class="col-sm-4 offset-4 w-25">
+              <input type="password" class="form-control form-control-lg" />
+              <div class="form-label bg-warning" style="margin: 10px 0px">
+                Ошибка (если будет)
+              </div>
             </div>
           </div>
         </div>
@@ -74,7 +103,7 @@
         </div>
       </form>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
     {% endblock %}
+    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
